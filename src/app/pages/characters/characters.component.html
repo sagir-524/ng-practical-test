@@ -1,0 +1,51 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-lg-4 col-xl-3 mb-4">
+      <input type="search" id="search-control" class="form-control" placeholder="Search" [formControl]="searchControl">
+    </div>
+    <div class="col-12">
+      <div class="table-responsive mb-4">
+        <table class="table table-bordered mb-0">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Status</th>
+              <th>Species</th>
+              <th>Gender</th>
+            </tr>
+          </thead>
+          <tbody>
+
+            <!-- template for content rows -->
+            <!-- <tr>
+              <td>123</td>
+              <td>John Doe</td>
+              <td>Alive</td>
+              <td>Human</td>
+              <td>Male</td>
+            </tr> -->
+
+            <!-- template for loading state -->
+            <!-- please make sure the column takes the full row -->
+            <!-- <tr>
+              <td>
+                <strong>Loading...</strong>
+              </td>
+            </tr> -->
+
+            <!-- template for NO_DATE_FOUND state -->
+            <!-- please make sure the column takes the full row -->
+            <!-- <tr>
+              <td>
+                <strong class="text-danger">Sorry, no characters found.</strong>
+              </td>
+            </tr> -->
+
+          </tbody>
+        </table>
+      </div>
+      <pagination [totalItems]="totalItems()" [ngModel]="pageControl.value" (pageChanged)="pageControl.setValue($event.page)"></pagination>
+    </div>
+  </div>
+</div>
