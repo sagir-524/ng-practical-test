@@ -1,0 +1,30 @@
+.box {
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 16px;
+  // padding: 16px;
+
+  &-sm {
+    --box-font-size: 14px;
+  }
+
+  &-md {
+    --box-font-size: 16px;
+  }
+
+  &-lg {
+    --box-font-size: 20px;
+  }
+
+  > p {
+    margin: 0;
+    font-size: var(--box-font-size);
+    padding: 16px;
+
+    /**
+     * here's your task
+     * write some css to show only 4 line maximum in the paragraph
+     * when it's being overflowed, it should show `...` ellipsis at the end.
+     */
+  }
+}

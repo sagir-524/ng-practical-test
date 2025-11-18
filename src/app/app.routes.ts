@@ -13,4 +13,9 @@ export const routes: Routes = [
         (c) => c.CharactersComponent
       ),
   },
+  {
+    path: 'boxes',
+    loadComponent: () =>
+      import('./pages/boxes/boxes.component').then((c) => c.BoxesComponent),
+  },
 ];
