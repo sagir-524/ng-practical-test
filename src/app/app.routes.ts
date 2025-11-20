@@ -25,4 +25,11 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./pages/boxes/boxes.component').then((c) => c.BoxesComponent),
   },
+  {
+    path: 'boxes-solution',
+    loadComponent: () =>
+      import('./pages/boxes-solution/boxes-solution.component').then(
+        (c) => c.BoxesSolutionComponent
+      ),
+  },
 ];

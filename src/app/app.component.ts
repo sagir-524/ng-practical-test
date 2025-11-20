@@ -13,6 +13,7 @@ export class AppComponent {
     { title: 'Characters', url: '/characters' },
     { title: 'Characters with RxJS', url: '/characters-rxjs' },
     { title: 'Boxes', url: '/boxes' },
+    { title: 'Boxes solution', url: '/boxes-solution' },
   ]);
 
   constructor() {

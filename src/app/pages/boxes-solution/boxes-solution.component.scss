@@ -1,0 +1,29 @@
+.box {
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 16px;
+  padding: 16px;
+
+  &-sm {
+    --box-font-size: 14px;
+  }
+
+  &-md {
+    --box-font-size: 16px;
+  }
+
+  &-lg {
+    --box-font-size: 20px;
+  }
+
+  > p {
+    margin: 0;
+    font-size: var(--box-font-size);
+    // padding: 16px; // this was the culprit of text showing extra line after ellipsis
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+    line-clamp: 4;
+    overflow: hidden;
+  }
+}
