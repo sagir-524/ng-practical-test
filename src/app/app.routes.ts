@@ -14,6 +14,13 @@ export const routes: Routes = [
       ),
   },
   {
+    path: 'characters-rxjs',
+    loadComponent: () =>
+      import(
+        './pages/characters-solution-rxjs/characters-solution-rxjs.component'
+      ).then((c) => c.CharactersSolutionRxjsComponent),
+  },
+  {
     path: 'boxes',
     loadComponent: () =>
       import('./pages/boxes/boxes.component').then((c) => c.BoxesComponent),

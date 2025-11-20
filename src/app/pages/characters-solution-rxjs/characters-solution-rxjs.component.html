@@ -1,0 +1,64 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-lg-4 col-xl-3 mb-4">
+      <input type="search" id="search-control" class="form-control" placeholder="Search" [formControl]="searchControl">
+    </div>
+    <div class="col-12">
+      <div class="table-responsive mb-4">
+        <table class="table table-bordered mb-0">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Status</th>
+              <th>Species</th>
+              <th>Gender</th>
+            </tr>
+          </thead>
+          <tbody>
+
+            @let characters = characters$ | async; <!-- this will make the http request -->
+
+            @if (loading()) {
+              <tr>
+                <td colspan="5">
+                  <strong>Loading...</strong>
+                </td>
+              </tr>
+            } @else if (errorMessage()) {
+              <tr>
+                <td colspan="5">
+                  <strong class="text-danger">{{ errorMessage() }}</strong>
+                </td>
+              </tr>
+            } @else {
+              @for (character of characters; track character.id) {
+                <tr>
+                  <td>{{ character.id }}</td>
+                  <td>{{ character.name }}</td>
+                  <td>{{ character.status }}</td>
+                  <td>{{ character.species }}</td>
+                  <td>{{ character.gender }}</td>
+                </tr>
+              } @empty {
+                <tr>
+                  <td colspan="5">
+                    <strong class="text-danger">Sorry, no characters found.</strong>
+                  </td>
+                </tr>
+              }
+            }
+
+          </tbody>
+        </table>
+      </div>
+      <pagination
+        [totalItems]="totalItems()"
+        [ngModel]="pageControl.value"
+        (pageChanged)="pageControl.setValue($event.page)"
+        [maxSize]="5"
+        [rotate]="true"
+      ></pagination>
+    </div>
+  </div>
+</div>

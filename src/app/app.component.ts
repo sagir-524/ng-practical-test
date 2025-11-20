@@ -11,6 +11,7 @@ import { setTheme } from 'ngx-bootstrap/utils';
 export class AppComponent {
   menus = signal([
     { title: 'Characters', url: '/characters' },
+    { title: 'Characters with RxJS', url: '/characters-rxjs' },
     { title: 'Boxes', url: '/boxes' },
   ]);
 
