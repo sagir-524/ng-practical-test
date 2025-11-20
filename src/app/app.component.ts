@@ -12,6 +12,7 @@ export class AppComponent {
   menus = signal([
     { title: 'Characters', url: '/characters' },
     { title: 'Characters with RxJS', url: '/characters-rxjs' },
+    { title: 'Characters with Signal', url: '/characters-signal' },
     { title: 'Boxes', url: '/boxes' },
     { title: 'Boxes solution', url: '/boxes-solution' },
   ]);

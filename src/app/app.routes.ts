@@ -21,6 +21,13 @@ export const routes: Routes = [
       ).then((c) => c.CharactersSolutionRxjsComponent),
   },
   {
+    path: 'characters-signal',
+    loadComponent: () =>
+      import(
+        './pages/characters-solution-signal/characters-solution-signal.component'
+      ).then((c) => c.CharactersSolutionSignalComponent),
+  },
+  {
     path: 'boxes',
     loadComponent: () =>
       import('./pages/boxes/boxes.component').then((c) => c.BoxesComponent),

@@ -1,0 +1,53 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-lg-4 col-xl-3 mb-4">
+      <input type="search" id="search-control" class="form-control" placeholder="Search" [(ngModel)]="search">
+    </div>
+    <div class="col-12">
+      <div class="table-responsive mb-4">
+        <table class="table table-bordered mb-0">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>Status</th>
+              <th>Species</th>
+              <th>Gender</th>
+            </tr>
+          </thead>
+          <tbody>
+
+            @let value = data.value();
+            @if (data.isLoading()) {
+              <tr>
+                <td colspan="5">
+                  <strong>Loading...</strong>
+                </td>
+              </tr>
+            } @else if (data.statusCode() === 404 || !value?.results?.length) {
+              <tr>
+                <td colspan="5">
+                  <strong>Sorry, not characters found.</strong>
+                </td>
+              </tr>
+            }
+
+            @for(character of value?.results; track character.id) {
+              <tr>
+                <td>{{ character.id }}</td>
+                <td>{{ character.name }}</td>
+                <td>{{ character.status }}</td>
+                <td>{{ character.species }}</td>
+                <td>{{ character.gender }}</td>
+              </tr>
+            }
+
+          </tbody>
+        </table>
+      </div>
+      @if (value?.info?.count) {
+        <pagination [totalItems]="value?.info?.count || 0" [(ngModel)]="page" [rotate]="true" [maxSize]="5"></pagination>
+      }
+    </div>
+  </div>
+</div>
